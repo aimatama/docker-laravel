@@ -8,6 +8,8 @@ RUN rm -rf /var/www/html
 RUN ln -s public html
 COPY . /var/www
 
+RUN chmod a+rx k8s/entrypoint.sh
+
 RUN composer install \
 #    && php artisan migrate \
     && php artisan cache:clear \ 
